@@ -4,13 +4,14 @@
 
 [image1]: ./writeup_img/screenshot.png
 [image2]: ./writeup_img/nvidia_cnn.png
-[image3]: ./writeup_img/model_shapes.png.png
+[image3]: ./writeup_img/model_shapes.png
 [image4]: ./writeup_img/center.png
 [image5]: ./writeup_img/left.png
 [image6]: ./writeup_img/right.png
 [image7]: ./writeup_img/curve.png
 [image8]: ./writeup_img/mirror.png
 [image9]: ./writeup_img/loss_epochs.png
+[image10]: ./writeup_img/hist.png
 
 ![alt text][image1]
 
@@ -108,14 +109,17 @@ Left| Center | Right
 I didn't record the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to get back on track. I augmented the data instead. 
 To augment the data sat, I flipped images and angles thinking that this would help to generalize the model and remove the bias of left curves. For example, here is an image that has then been flipped:
 
-![alt text][image7]
-![alt text][image8]
+Original| Mirror | 
+----|--------|
+![left](./writeup_img/curve.png) | ![center](./writeup_img/mirror.png) | 
 
 
 After the collection process, I had 37512 number of data points. I then preprocessed this data by converting its color from BGR to RGB. Then I cropped top and bottom parts of the images which contains needless information. After that, I resized images to the size of 66x200x3 on which NVIDIA model was trained.
 
+This is distribution of steering angles across training data:
+![alt text][image10]
+
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 3 as evidenced by the plot below.
+I used this training data for training the model. I used an adam optimizer so that manually training the learning rate wasn't necessary. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 3 as evidenced by the plot below.
 ![alt text][image9]
-I used an adam optimizer so that manually training the learning rate wasn't necessary.

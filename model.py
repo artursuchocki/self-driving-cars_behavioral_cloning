@@ -139,7 +139,7 @@ def main():
 
 	model.save('model.h5')
 
-	### plot the training and validation loss for each epoch
+	## plot the training and validation loss for each epoch
 	plt.plot(history_object.history['loss'])
 	plt.plot(history_object.history['val_loss'])
 	plt.title('model mean squared error loss')
@@ -148,6 +148,14 @@ def main():
 	plt.legend(['training set', 'validation set'], loc='upper right')
 	plt.savefig('./loss_epochs.png')
 	plot_model(model, to_file='./model_shapes.png', show_shapes=True)
+
+	##Plot histogram
+	# y = np.array(samples, ndmin=2)
+	# labels, counts = np.unique(y[:,1].astype('float'), return_counts=True)
+	# plt.hist(y[:,1].astype('float'),30, normed=1, alpha=0.75)
+	# plt.title('Distribution of steering angles')
+	# plt.savefig('./writeup_img/hist.png')
+
 
 if __name__ == '__main__':
     main()
