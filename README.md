@@ -91,8 +91,6 @@ In order to gauge how well the model was working, I split my image and steering 
 
 To combat the overfitting, I modified the model so that I added a dropput layer to model and ended up with trainig_loss = 0.0184 and validation_loss = 0.0180.
 
-I trained the model on my local notebook with CPU. So I choose 5 epochs but the results were great - at the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
-
 #### 2. Final Model Architecture
 
 The final model architecture consisted of a convolution neural network with the following layers and layer sizes:
@@ -123,3 +121,10 @@ I finally randomly shuffled the data set and put 20% of the data into a validati
 
 I used this training data for training the model. I used an adam optimizer so that manually training the learning rate wasn't necessary. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 3 as evidenced by the plot below.
 ![alt text][image9]
+
+----
+### Results
+I trained the model on my local notebook with CPU. So I choose 5 epochs but the results were great - at the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+
+#### Training Track
+[![training_track](https://img.youtube.com/watch?v=VOBAjDO9ChE/0.jpg)](https://www.youtube.com/watch?v=VOBAjDO9ChE)
