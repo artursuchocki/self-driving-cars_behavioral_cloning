@@ -1,4 +1,16 @@
-# Behavioral Cloning** 
+# Behavioral Cloning
+
+[//]: # (Image References)
+
+[image1]: ./writeup_img/screenshot.png
+[image2]: ./writeup_img/nvidia_cnn.png
+[image3]: ./writeup_img/model_shapes.png.png
+[image4]: ./writeup_img/center.png
+[image5]: ./writeup_img/left.png
+[image6]: ./writeup_img/right.png
+[image7]: ./writeup_img/curve.png
+[image8]: ./writeup_img/mirror.png
+[image9]: ./writeup_img/loss_epochs.png
 
 ![alt text][image1]
 
@@ -15,17 +27,7 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
 
-[image1]: ./writeup_img/screenshot.png
-[image2]: ./writeup_img/nvidia_cnn.png
-[image3]: ./writeup_img/model_shapes.png.png
-[image4]: ./writeup_img/center.png
-[image5]: ./writeup_img/left.png
-[image6]: ./writeup_img/right.png
-[image7]: ./writeup_img/curve.png
-[image8]: ./writeup_img/mirror.png
-[image9]: ./writeup_img/loss_epochs.png
 ---
 ### Files Submitted & Code Quality
 
@@ -51,23 +53,23 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My starting point was to implement NVIDIA CNN model [a link](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)
+My starting point was to implement model [NVIDIA CNN](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)
 ![alt text][image2]
 
-Then I added Dropout regularization after Flatten layer (model.py, line 121)
-My model consists of a 3 convolution neural network with 5x5 filter sizes, 2 convolution neural network with 3x3 filter sizes and depths between 24 and 64 (model.py, lines 110-118) 
+Then I added Dropout regularization after Flatten layer (model.py, line 118).
+My model consists of a 3 convolution neural network with 5x5 filter sizes, 2 convolution neural network with 3x3 filter sizes and depths between 24 and 64 (model.py, lines 107-115) 
 
-The model includes ELU layers to introduce nonlinearity (model.py lines 111-119), and the data is normalized in the model using a Keras lambda layer (code line 109). 
+The model includes ELU layers to introduce nonlinearity (model.py lines 108-116), and the data is normalized in the model using a Keras lambda layer (model.py, line 106). 
 
 #### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 121). 
+The model contains dropout layers in order to reduce overfitting (model.py lines 118). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (model.py, 130,139). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (model.py, 127,136). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py, line 138).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py, line 135).
 
 #### 4. Appropriate training data
 
@@ -86,13 +88,13 @@ My first step was to use a convolution neural network model similar to the NVIDI
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
-To combat the overfitting, I modified the model so that I added a dropput layer to model and ended up with trainig_loss = 0.0207 and validation_loss = 0.0190
+To combat the overfitting, I modified the model so that I added a dropput layer to model and ended up with trainig_loss = 0.0184 and validation_loss = 0.0180.
 
 I trained the model on my local notebook with CPU. So I choose 5 epochs but the results were great - at the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes:
+The final model architecture consisted of a convolution neural network with the following layers and layer sizes:
 ![alt text][image3]
 
 #### 3. Creation of the Training Set & Training Process

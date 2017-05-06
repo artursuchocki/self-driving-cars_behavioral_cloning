@@ -137,7 +137,7 @@ def main():
 			validation_data=validation_generator, validation_steps=math.ceil(len(validation_samples)/BATCH_SIZE), \
 			epochs=EPOCH, verbose = 1)
 
-	model.save('model5.h5')
+	model.save('model.h5')
 
 	### plot the training and validation loss for each epoch
 	plt.plot(history_object.history['loss'])
