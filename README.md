@@ -127,4 +127,4 @@ I used this training data for training the model. I used an adam optimizer so th
 I trained the model on my local notebook with CPU. So I choose 5 epochs but the results were great - at the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 #### Training Track
-[![training_track](https://img.youtube.com/watch?v=VOBAjDO9ChE/0.jpg)](https://www.youtube.com/watch?v=VOBAjDO9ChE)
+[![training_track](https://img.youtube.com/vi/VOBAjDO9ChE/0.jpg)](https://www.youtube.com/watch?v=VOBAjDO9ChE)
